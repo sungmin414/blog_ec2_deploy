@@ -1,0 +1,18 @@
+# EC2 Deploy
+
+## Installation
+
+### Requirements
+
+- Python(3.6)
+- Django (2.1)
+
+### Secrets
+
+`.secrets/base.json`
+
+```json
+{
+  "SECRET_KET" : "<Django secret key>"
+}
+```
