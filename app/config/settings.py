@@ -15,22 +15,24 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(BASE_DIR)
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRETS_DIR = os.path.join(ROOT_DIR, '.secrets')
 secrets = json.load(open(os.path.join(SECRETS_DIR, 'base.json')))
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = secrets['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# Static
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'amazonaws.com',
+    '.amazonaws.com',
 ]
 
 # Auth
@@ -65,7 +67,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            TEMPLATES_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +129,3 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
