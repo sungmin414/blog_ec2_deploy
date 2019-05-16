@@ -1,8 +1,9 @@
 # Secrets
 /.secrets
 
-# Media
+# Media, Static ROOT
 /.media
+/.static
 
 # Created by https://www.gitignore.io/api/git,linux,macos,django,python,pycharm+all
 # Edit at https://www.gitignore.io/?templates=git,linux,macos,django,python,pycharm+all
