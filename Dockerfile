@@ -10,7 +10,7 @@ RUN                 apt -y install python3-pip
 
 
 # Nginx, uWSGI 설치 (WebServer, WSGI)
-RUN                 apt -y install nginx
+RUN                 apt -y install nginx supervisor
 RUN                 pip3 install uwsgi
 
 # requirements.txt 파일만 복사 후, 패키지 설치
@@ -40,5 +40,9 @@ RUN                 cp -f   /srv/project/.config/app.nginx \
 RUN                 ln -sf  /etc/nginx/sites-available/app.nginx \
                             /etc/nginx/sites-enabled/app.nginx
 
+# supervisor설정파일 복사
+RUN                 cp -f   /srv/project/.config/supervisor.conf \
+                            /etc/supervisor/conf.d/
 
-
+# Command로 supervisor실행
+CMD                 supervisord -n
