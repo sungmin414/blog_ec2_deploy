@@ -4,6 +4,7 @@ FROM                python:3.6.8-slim
 MAINTAINER          psungmin88.1@gmail.com
 
 # settings모듈에 대한 환경변수 설정
+ENV                 DJANGO_SETTINGS_MODULE config.settings.production
 ENV                 LANG                    C.UTF-8
 
 # 패키지 업그레이드, gcc, nginx, supervisor, uwsgi 설치
@@ -40,6 +41,9 @@ RUN                 ln -sf  /etc/nginx/sites-available/app.nginx \
 # supervisor설정파일 복사
 RUN                 cp -f   /srv/project/.config/supervisor.conf \
                             /etc/supervisor/conf.d/
+
+# 80번 포트 개방
+EXPOSE              80
 
 # Command로 supervisor실행
 CMD                 supervisord -n
