@@ -14,4 +14,3 @@ class User(AbstractUser):
     # - 링크 클릭하면 정상적으로 나오는지 확인
     img_profile = models.ImageField(upload_to='user', blank=True)
     nickname = models.CharField(max_length=20, unique=True, blank=True, null=True)
-    
