@@ -40,7 +40,7 @@ LOGGING = {
         },
         'file_info': {
             'class': 'logging.handlers.RotatingFileHandler',
-            'level': 'ERROR',
+            'level': 'INFO',
             'filename': os.path.join(LOG_DIR, 'info.log'),
             'formatter': 'default',
             'maxBytes': 1048576,
