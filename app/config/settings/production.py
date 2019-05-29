@@ -33,7 +33,7 @@ LOGGING = {
         'file_error': {
             'class': 'logging.handlers.RotatingFileHandler',
             'level': 'ERROR',
-            'filename': os.path.join(LOG_DIR, 'django.log'),
+            'filename': os.path.join(LOG_DIR, 'error.log'),
             'formatter': 'default',
             'maxBytes': 1048576,
             'backupCount': 10,
@@ -41,7 +41,7 @@ LOGGING = {
         'file_info': {
             'class': 'logging.handlers.RotatingFileHandler',
             'level': 'ERROR',
-            'filename': os.path.join(LOG_DIR, 'django.log'),
+            'filename': os.path.join(LOG_DIR, 'info.log'),
             'formatter': 'default',
             'maxBytes': 1048576,
             'backupCount': 10,
